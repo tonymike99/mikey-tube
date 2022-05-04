@@ -1,3 +1,5 @@
-## Video Library Backend
+# [VideoBud](https://video-bud.netlify.app/)
 
-This folder contains the Mock Backend created for Video Library App. It contains different API end-points and database configuration for building Video Library; so that you can focus on building Frontend.
+## Introduction
+
+VideoBud is a video library application to watch all your favourite videos.
