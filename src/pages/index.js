@@ -6,4 +6,4 @@ export { History } from "./History/History";
 export { WatchLater } from "./WatchLater/WatchLater";
 export { Playlists } from "./Playlists/Playlists";
 export { PageNotFound } from "./PageNotFound/PageNotFound";
-export { LikedVideos } from "./LikedVideos/LikedVideos";
+
