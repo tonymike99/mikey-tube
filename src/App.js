@@ -10,7 +10,6 @@ import {
   WatchLater,
   Playlists,
   PageNotFound,
-  LikedVideos,
 } from "./pages/index";
 
 function App() {
@@ -26,7 +25,6 @@ function App() {
         <Route path="/history" element={<History />} />
         <Route path="/watch-later" element={<WatchLater />} />
         <Route path="/playlists" element={<Playlists />} />
-        <Route path="/liked-videos" element={<LikedVideos />} />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
 
