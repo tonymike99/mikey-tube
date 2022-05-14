@@ -7,11 +7,11 @@ function Footer() {
         <small>
           Made with
           <span>
-            <i className="fas fa-heart footer-heart-icon" />
+            <i className="fa-solid fa-heart footer-heart-icon"></i>
           </span>
           and
           <span>
-            <i className="fas fa-code footer-code-icon" />
+            <i className="fa-solid fa-code footer-code-icon" />
           </span>
           by
         </small>
@@ -27,7 +27,7 @@ function Footer() {
           rel="noreferrer"
         >
           <i
-            className="fab fa-github fa-lg footer-github-icon"
+            className="fa-brands fa-github fa-lg footer-github-icon"
             aria-hidden="true"
           />
         </a>
@@ -38,7 +38,7 @@ function Footer() {
           rel="noreferrer"
         >
           <i
-            className="fab fa-linkedin-in fa-lg footer-linkedin-icon"
+            className="fa-brands fa-linkedin fa-lg footer-linkedin-icon"
             aria-hidden="true"
           />
         </a>
@@ -49,7 +49,7 @@ function Footer() {
           rel="noreferrer"
         >
           <i
-            className="fab fa-twitter fa-lg footer-twitter-icon"
+            className="fa-brands fa-twitter fa-lg footer-twitter-icon"
             aria-hidden="true"
           />
         </a>
@@ -60,7 +60,7 @@ function Footer() {
           rel="noreferrer"
         >
           <i
-            className="fas fa-envelope fa-lg footer-email-icon"
+            className="fa-solid fa-envelope fa-lg footer-email-icon"
             aria-hidden="true"
           />
         </a>
@@ -69,9 +69,11 @@ function Footer() {
         <small>No copyright © issues. Feel free to copy.</small>
       </div>
       <div className="footer-item">
-        <a href="https://placeholder.com/">
-          Placeholder images by Placeholder.com
-        </a>
+        <small>
+          <a href="https://placeholder.com/">
+            Placeholder images by Placeholder.com
+          </a>
+        </small>
       </div>
     </footer>
   );

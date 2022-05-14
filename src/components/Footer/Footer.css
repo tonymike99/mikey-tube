@@ -43,11 +43,7 @@
 }
 
 .footer-linkedin-icon {
-  border-radius: 2px;
-  margin: 0;
-  padding: 4px 4px;
   color: var(--light-color);
-  background-color: #0a66c2;
 }
 
 /* FOOTER STYLES END */
