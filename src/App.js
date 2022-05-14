@@ -5,11 +5,12 @@ import {
   Login,
   Signup,
   Home,
-  Videos,
+  Explore,
   History,
   WatchLater,
   Playlists,
   PageNotFound,
+  LikedVideos,
 } from "./pages/index";
 
 function App() {
@@ -21,10 +22,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/videos" element={<Videos />} />
+        <Route path="/explore" element={<Explore />} />
         <Route path="/history" element={<History />} />
         <Route path="/watch-later" element={<WatchLater />} />
         <Route path="/playlists" element={<Playlists />} />
+        <Route path="/liked-videos" element={<LikedVideos />} />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
 
