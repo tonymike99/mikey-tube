@@ -6,66 +6,52 @@ import { categories } from "./categories";
  * You can add videos of your wish with different attributes
  * */
 
-// export const videos = [
-//   {
-//     _id: "Wo5dMEP_BbI",
-//     title: "Awesome Video about Coding",
-//     description:
-//       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
-//     creator: "Soham Shah",
-//   },
-//   {
-//     _id: "F_Riqjdh2oM",
-//     title: "Neural Networks from Scratch - P.1 Intro and Neuron Code",
-//     creator: "Sentdex",
-//     description:
-//       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
-//   },
-// ];
-
-const urlData = [
-  [
-    "https://www.youtube.com/watch?v=HFYQMLIxhf4",
-    "https://www.youtube.com/watch?v=qGcWwBVcjz8",
-    "https://www.youtube.com/watch?v=59MdCHCZeeI",
-    "https://www.youtube.com/watch?v=59MdCHCZeeI",
-  ],
-  [
-    "https://www.youtube.com/watch?v=vnmSEvy6Hp4",
-    "https://www.youtube.com/watch?v=PbWEWQf99vU",
-    "https://www.youtube.com/watch?v=NZ2qaSMvHtg",
-    "https://www.youtube.com/watch?v=CYmjTyLuzuo",
-  ],
-  [
-    "https://www.youtube.com/watch?v=zdBthc6fCk4",
-    "https://www.youtube.com/watch?v=-_EVfrXqkEo",
-    "https://www.youtube.com/watch?v=AmHsd9NG_fs",
-    "https://www.youtube.com/watch?v=PUdemKYW6QE",
-  ],
-];
+const videoDetails = (url, categoryName, index) => ({
+  _id: uuid(),
+  title: categoryName + " " + index,
+  description: categoryName + " " + index,
+  creator: categoryName + " " + index,
+  url,
+  categoryName,
+  thumbnailUrl:
+    "https://i.ytimg.com/vi/" + url.slice(30) + "/maxresdefault.jpg",
+});
 
 let videos = [];
 
-const generateData = (urlArray, categoryName) => {
-  return urlArray.map((url, index) => ({
-    _id: uuid(),
-    title: categoryName + " " + index,
-    description: categoryName + " " + index,
-    creator: categoryName + " " + index,
-    url,
-    categoryName,
-    playlists: [],
-    watched: false,
-    likes: 0,
-    dislikes: 0,
-    views: 0,
-  }));
-};
+const videoUrls = [
+  "https://www.youtube.com/embed/HFYQMLIxhf4",
+  "https://www.youtube.com/embed/qGcWwBVcjz8",
+  "https://www.youtube.com/embed/59MdCHCZeeI",
+  "https://www.youtube.com/embed/s07VLbGSTQc",
 
-for (let i = 0; i < categories.length; i++) {
-  videos.push(generateData(urlData[i], categories[i].categoryName));
+  "https://www.youtube.com/embed/vnmSEvy6Hp4",
+  "https://www.youtube.com/embed/PbWEWQf99vU",
+  "https://www.youtube.com/embed/NZ2qaSMvHtg",
+  "https://www.youtube.com/embed/CYmjTyLuzuo",
+
+  "https://www.youtube.com/embed/zdBthc6fCk4",
+  "https://www.youtube.com/embed/-_EVfrXqkEo",
+  "https://www.youtube.com/embed/AmHsd9NG_fs",
+  "https://www.youtube.com/embed/Ahnby2vUlxM",
+
+  "https://www.youtube.com/embed/NfGIGfIz16s",
+  "https://www.youtube.com/embed/UoUjz-bOn_w",
+  "https://www.youtube.com/embed/lb9Rh6OQq0Y",
+  "https://www.youtube.com/embed/lPJ4HIl26gI",
+];
+
+for (let i = 0; i < videoUrls.length; i++) {
+  let categoryIndex = 0;
+  i <= 3
+    ? (categoryIndex = 0)
+    : i >= 4 && i <= 7
+    ? (categoryIndex = 1)
+    : i >= 8 && i <= 11
+    ? (categoryIndex = 2)
+    : (categoryIndex = 3);
+
+  videos.push(videoDetails(videoUrls[i], categories[categoryIndex].name, i));
 }
-
-// {_id, title:string, description:string, creator:string, url:string, category:string, watchLater:boolean, watched:boolean, playlists:array}
 
 export { videos };

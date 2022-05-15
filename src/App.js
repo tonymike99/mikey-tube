@@ -5,7 +5,7 @@ import {
   Login,
   Signup,
   Home,
-  Videos,
+  Explore,
   History,
   WatchLater,
   Playlists,
@@ -21,7 +21,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/videos" element={<Videos />} />
+        <Route path="/explore" element={<Explore />} />
         <Route path="/history" element={<History />} />
         <Route path="/watch-later" element={<WatchLater />} />
         <Route path="/playlists" element={<Playlists />} />

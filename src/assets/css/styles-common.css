@@ -30,6 +30,9 @@
 
   --link-hover: #36096d;
   --dark-theme: #363c49;
+
+  --slide-dot-active: #0d6efd;
+  --slide-dot-inactive: #c4c4c4;
 }
 
 /* **************************************************************************************************** */
@@ -91,11 +94,135 @@ i {
   padding: 0.5rem;
 }
 
+iframe {
+  display: block;
+  margin: 0 auto;
+}
+
 /* DIRECT TAG STYLES END */
 
 /* **************************************************************************************************** */
 
 /* PROJECT SPECIFIC COMMON STYLES START */
+
+/* COMMON STYLES START */
+
+.color-white {
+  color: var(--light-color);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* COMMON STYLES END */
+
+/* PAGE STYLES START */
+
+.main-container {
+  display: grid;
+  grid-template-areas:
+    "aside main main main main main"
+    "aside main main main main main"
+    "aside main main main main main";
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.main {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.videos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+/* PAGE STYLES END */
+
+/* CARD STYLES START */
+
+.card-category {
+  border: 5px solid var(--light-color);
+}
+
+.card-category:hover {
+  opacity: 0.9;
+}
+
+.card-video {
+  border: 5px solid var(--light-color);
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+/* CARD STYLES END */
+
+/* SLIDESHOW STYLES START */
+
+.center-contents {
+  position: relative;
+}
+
+.center-contents > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 100%;
+  border-radius: 1rem;
+}
+
+/* SLIDESHOW STYLES END */
+
+/* MODAL STYLES START */
+
+.modal-window {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.75);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.5s;
+}
+
+.modal-window > div {
+  position: absolute;
+  width: 20%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  background: var(--light-color);
+}
+
+.modal-close {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  cursor: pointer;
+}
+
+.playlists-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* MODAL STYLES END */
 
 /* PROJECT SPECIFIC COMMON STYLES END */
 

@@ -1,0 +1,47 @@
+/* Slideshow */
+
+.slideshow {
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 100rem;
+}
+
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+}
+
+.slide {
+  display: inline-block;
+  height: 75vh;
+  width: 100rem;
+  border-radius: 2.5rem;
+}
+
+.slide:hover {
+  opacity: 0.9;
+}
+
+.slide > img {
+  border: 5px solid var(--light-color);
+}
+
+/* Buttons */
+
+.slideshowDots {
+  text-align: center;
+}
+
+.slideshowDot {
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 1rem;
+  background-color: var(--slide-dot-inactive);
+}
+
+.slideshowDot.active {
+  background-color: var(--slide-dot-active);
+}
