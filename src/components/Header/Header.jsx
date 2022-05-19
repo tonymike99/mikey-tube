@@ -1,6 +1,6 @@
 import "./Header.css";
 import { Link } from "react-router-dom";
-import { useTheme } from "../../hooks/context/index";
+import { useTheme, useAuth } from "../../hooks/context/index";
 
 function Header() {
   const { theme, setTheme } = useTheme();
@@ -10,6 +10,17 @@ function Header() {
     document.body.classList.toggle(theme);
     setTheme(theme === "dark-theme" ? "light-theme" : "dark-theme");
   };
+
+  // ****************************************************************************************************
+
+  const { encodedToken, logoutUserDetails } = useAuth();
+
+  // To handle logout button onClick
+  const handlerLogout = () => {
+    logoutUserDetails();
+  };
+
+  // ****************************************************************************************************
 
   return (
     <header className="header">
@@ -22,11 +33,16 @@ function Header() {
       <nav className="header-item">
         <ul className="list list-spaced list-navbar">
           <li>
-            <Link to="/login" className="styled-link">
-              <i className="fa-solid fa-user fa-lg"></i>
-            </Link>
+            {encodedToken ? (
+              <Link to="/" className="styled-link" onClick={handlerLogout}>
+                Logout
+              </Link>
+            ) : (
+              <Link to="/auth" className="styled-link">
+                Login
+              </Link>
+            )}
           </li>
-
           <li>|</li>
           <li>
             <a
