@@ -9,7 +9,7 @@ function Aside() {
     { to: "/history", name: "HISTORY", icon: "fa-history" },
     { to: "/watch-later", name: "WATCH LATER", icon: "fa-clock" },
     { to: "/playlists", name: "PLAYLISTS", icon: "fa-list-check" },
-    { to: "/liked-videos", name: "LIKED VIDEOS", icon: "fa-thumbs-up" },
+    { to: "/liked", name: "LIKED VIDEOS", icon: "fa-thumbs-up" },
   ];
 
   return (
