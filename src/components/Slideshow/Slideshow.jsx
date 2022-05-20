@@ -1,9 +1,8 @@
 import "./Slideshow.css";
-import { videos } from "../../backend/db/videos";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
-function Slideshow() {
+function Slideshow({ videos }) {
   const [slideshowIndex, setSlideshowIndex] = useState(0);
   const timeoutRef = useRef(null);
   let delay = 3000;
