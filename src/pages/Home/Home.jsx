@@ -1,10 +1,15 @@
 import { Aside, CardCategory, Slideshow } from "../../components/index";
 import { useDocumentTitle } from "../../hooks/custom/index";
-import { categories } from "../../backend/db/categories";
+import { useVideosAndCategories } from "../../hooks/context/index";
 
 function Home() {
   // SET DOCUMENT TITLE
   useDocumentTitle("Home");
+
+  // GET VIDEOS AND CATEGORIES
+  const { videos, categories } = useVideosAndCategories();
+
+  // ****************************************************************************************************
 
   return (
     <div className="main-container">
@@ -12,7 +17,7 @@ function Home() {
 
       <main className="main">
         <section>
-          <Slideshow />
+          <Slideshow videos={videos} />
         </section>
 
         <section className="videos">
