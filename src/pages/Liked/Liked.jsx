@@ -1,12 +1,12 @@
 import { Aside, CardVideo } from "../../components/index";
 import { useDocumentTitle } from "../../hooks/custom/index";
-import { useWatchLater } from "../../hooks/context/index";
+import { useLiked } from "../../hooks/context/index";
 
-function WatchLater() {
+function Liked() {
   // SET DOCUMENT TITLE
-  useDocumentTitle("Watch Later");
+  useDocumentTitle("Liked");
 
-  const { watchLaterVideos } = useWatchLater();
+  const { likedVideos } = useLiked();
 
   // ****************************************************************************************************
 
@@ -16,12 +16,12 @@ function WatchLater() {
 
       <main className="main">
         <section className="videos">
-          {watchLaterVideos.length ? (
-            watchLaterVideos.map((watchLaterVideo) => (
-              <CardVideo key={watchLaterVideo._id} video={watchLaterVideo} />
+          {likedVideos.length ? (
+            likedVideos.map((likedVideo) => (
+              <CardVideo key={likedVideo._id} video={likedVideo} />
             ))
           ) : (
-            <h1>Watch Later is empty!</h1>
+            <h1>Liked is empty!</h1>
           )}
         </section>
       </main>
@@ -29,4 +29,4 @@ function WatchLater() {
   );
 }
 
-export { WatchLater };
+export { Liked };

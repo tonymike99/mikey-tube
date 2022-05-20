@@ -9,6 +9,7 @@ import {
   History,
   WatchLater,
   Playlists,
+  Liked,
   PageNotFound,
 } from "./pages/index";
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/history" element={<History />} />
           <Route path="/watch-later" element={<WatchLater />} />
           <Route path="/playlists" element={<Playlists />} />
+          <Route path="/liked" element={<Liked />} />
         </Route>
       </Routes>
 
