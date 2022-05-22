@@ -11,6 +11,8 @@ import {
   Playlists,
   Liked,
   PageNotFound,
+  SingleVideo,
+  SinglePlaylist,
 } from "./pages/index";
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/explore" element={<Explore />} />
+        <Route path="/explore/:videoId" element={<SingleVideo />} />
         <Route path="/*" element={<PageNotFound />} />
 
         <Route element={<RestrictedRoute />}>
@@ -30,8 +33,9 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route path="/history" element={<History />} />
           <Route path="/watch-later" element={<WatchLater />} />
-          <Route path="/playlists" element={<Playlists />} />
           <Route path="/liked" element={<Liked />} />
+          <Route path="/playlists" element={<Playlists />} />
+          <Route path="/playlists/:playlistId" element={<SinglePlaylist />} />
         </Route>
       </Routes>
 
