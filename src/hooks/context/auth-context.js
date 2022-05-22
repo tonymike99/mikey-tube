@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import axios from "axios";
 import { createContext, useContext, useState } from "react";
 
@@ -7,6 +8,35 @@ const AuthContext = createContext(defaultObj);
 const AuthProvider = ({ children }) => {
   const [userDetails, setUserDetails] = useState(null);
   const [encodedToken, setEncodedToken] = useState(null);
+
+  useEffect(() => {
+    const localToken = localStorage.getItem("jwt-token");
+
+    if (localToken) {
+      (async () => {
+        try {
+          const params = {
+            method: "post",
+            url: "/api/auth/verifyJwtToken",
+            data: {
+              localToken,
+            },
+          };
+
+          const verifyJwtTokenResponse = await axios.request(params);
+
+          if (verifyJwtTokenResponse.status === 200) {
+            setUserDetails(verifyJwtTokenResponse.data.foundUser);
+            setEncodedToken(localToken);
+          }
+        } catch (error) {
+          console.log(error.response.data);
+        }
+      })();
+    }
+  }, []);
+
+  // ****************************************************************************************************
 
   const authenticateLoginDetails = async (loginDetails) => {
     try {
