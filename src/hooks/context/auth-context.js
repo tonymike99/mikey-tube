@@ -15,26 +15,7 @@ const AuthProvider = ({ children }) => {
     const localToken = localStorage.getItem("jwt-token");
 
     if (localToken) {
-      (async () => {
-        try {
-          const params = {
-            method: "post",
-            url: "/api/auth/verifyJwtToken",
-            data: {
-              localToken,
-            },
-          };
-
-          const verifyJwtTokenResponse = await axios.request(params);
-
-          if (verifyJwtTokenResponse.status === 200) {
-            setUserDetails(verifyJwtTokenResponse.data.foundUser);
-            setEncodedToken(localToken);
-          }
-        } catch (error) {
-          console.log(error.response.data);
-        }
-      })();
+      verifyJwtTokenOnPageRefresh(localToken);
     }
   }, []);
 
@@ -84,6 +65,27 @@ const AuthProvider = ({ children }) => {
     setUserDetails(null);
     setEncodedToken(null);
     localStorage.removeItem("jwt-token");
+  };
+
+  const verifyJwtTokenOnPageRefresh = async (localToken) => {
+    try {
+      const params = {
+        method: "post",
+        url: "/api/auth/verifyJwtToken",
+        data: {
+          localToken,
+        },
+      };
+
+      const verifyJwtTokenResponse = await axios.request(params);
+
+      if (verifyJwtTokenResponse.status === 200) {
+        setUserDetails(verifyJwtTokenResponse.data.foundUser);
+        setEncodedToken(localToken);
+      }
+    } catch (error) {
+      console.log(error.response.data);
+    }
   };
 
   const valueObj = {

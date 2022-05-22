@@ -9,29 +9,35 @@ const HistoryProvider = ({ children }) => {
   const { encodedToken } = useAuth();
   const [historyVideos, setHistoryVideos] = useState([]);
 
+  // ****************************************************************************************************
+
   useEffect(() => {
     if (encodedToken) {
-      (async () => {
-        try {
-          const params = {
-            method: "get",
-            url: "/api/user/history",
-            headers: {
-              authorization: encodedToken,
-            },
-          };
-
-          const historyVideosResponse = await axios.request(params);
-
-          if (historyVideosResponse.status === 200) {
-            setHistoryVideos(historyVideosResponse.data.history);
-          }
-        } catch (error) {
-          console.log(error.response.data);
-        }
-      })();
+      getHistoryVideos();
     }
   }, [encodedToken]);
+
+  // ****************************************************************************************************
+
+  const getHistoryVideos = async () => {
+    try {
+      const params = {
+        method: "get",
+        url: "/api/user/history",
+        headers: {
+          authorization: encodedToken,
+        },
+      };
+
+      const historyVideosResponse = await axios.request(params);
+
+      if (historyVideosResponse.status === 200) {
+        setHistoryVideos(historyVideosResponse.data.history);
+      }
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
 
   const addVideoToHistory = async (video) => {
     try {

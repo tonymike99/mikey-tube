@@ -18,6 +18,8 @@ const PlaylistProvider = ({ children }) => {
     }
   }, [encodedToken]);
 
+  // ****************************************************************************************************
+
   const getPlaylist = async (playlistId) => {
     try {
       const params = {

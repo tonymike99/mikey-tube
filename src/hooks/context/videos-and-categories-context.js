@@ -10,43 +10,48 @@ const VideosAndCategoriesProvider = ({ children }) => {
   const [videos, setVideos] = useState([]);
   const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const params = {
-          method: "get",
-          url: "/api/videos",
-        };
-
-        const videosResponse = await axios.request(params);
-
-        if (videosResponse.status === 200) {
-          setVideos(videosResponse.data.videos);
-        }
-      } catch (error) {
-        console.log(error.response.data);
-      }
-    })();
-  }, []);
+  // ****************************************************************************************************
 
   useEffect(() => {
-    (async () => {
-      try {
-        const params = {
-          method: "get",
-          url: "/api/categories",
-        };
-
-        const categoriesResponse = await axios.request(params);
-
-        if (categoriesResponse.status === 200) {
-          setCategories(categoriesResponse.data.categories);
-        }
-      } catch (error) {
-        console.log(error.response.data);
-      }
-    })();
+    getVideos();
+    getCategories();
   }, []);
+
+  // ****************************************************************************************************
+
+  const getVideos = async () => {
+    try {
+      const params = {
+        method: "get",
+        url: "/api/videos",
+      };
+
+      const videosResponse = await axios.request(params);
+
+      if (videosResponse.status === 200) {
+        setVideos(videosResponse.data.videos);
+      }
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
+
+  const getCategories = async () => {
+    try {
+      const params = {
+        method: "get",
+        url: "/api/categories",
+      };
+
+      const categoriesResponse = await axios.request(params);
+
+      if (categoriesResponse.status === 200) {
+        setCategories(categoriesResponse.data.categories);
+      }
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
 
   const getVideo = async (videoId) => {
     try {
