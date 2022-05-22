@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import axios from "axios";
+import { useEffect } from "react";
 import { createContext, useContext, useState } from "react";
 
 const defaultObj = {};
@@ -8,6 +8,8 @@ const AuthContext = createContext(defaultObj);
 const AuthProvider = ({ children }) => {
   const [userDetails, setUserDetails] = useState(null);
   const [encodedToken, setEncodedToken] = useState(null);
+
+  // ****************************************************************************************************
 
   useEffect(() => {
     const localToken = localStorage.getItem("jwt-token");
