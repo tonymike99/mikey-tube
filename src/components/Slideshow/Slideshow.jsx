@@ -1,18 +1,46 @@
 import "./Slideshow.css";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import {
+  useAuth,
+  useHistory,
+  useVideosAndCategories,
+} from "../../hooks/context/index";
 
 function Slideshow({ videos }) {
+  const { encodedToken } = useAuth();
+  const { historyVideos, addVideoToHistory } = useHistory();
+  const { getVideo } = useVideosAndCategories();
+
+  const IsVideoInHistory = (videoId) =>
+    historyVideos.find((historyVideo) => historyVideo._id === videoId)
+      ? true
+      : false;
+
+  const handleGetVideoAndAddVideoToHistoryButtonOnClick = (video, videoId) => {
+    getVideo(videoId);
+
+    if (encodedToken && !IsVideoInHistory(videoId)) {
+      addVideoToHistory(video);
+    }
+  };
+
+  // ****************************************************************************************************
+
   const [slideshowIndex, setSlideshowIndex] = useState(0);
   const timeoutRef = useRef(null);
   let delay = 3000;
   const slideshowVideos = videos.filter((video, index) => index % 4 === 0);
+
+  // ****************************************************************************************************
 
   function resetTimeout() {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
   }
+
+  // ****************************************************************************************************
 
   useEffect(() => {
     resetTimeout();
@@ -29,6 +57,8 @@ function Slideshow({ videos }) {
     };
   }, [slideshowIndex]);
 
+  // ****************************************************************************************************
+
   return (
     <div className="slideshow">
       <div
@@ -41,6 +71,12 @@ function Slideshow({ videos }) {
               <img
                 src={slideshowVideo.thumbnailUrl}
                 alt={slideshowVideo.title}
+                onClick={() =>
+                  handleGetVideoAndAddVideoToHistoryButtonOnClick(
+                    slideshowVideo,
+                    slideshowVideo._id
+                  )
+                }
               />
             </div>
           </Link>

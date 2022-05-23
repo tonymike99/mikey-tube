@@ -4,5 +4,6 @@ export { Slideshow } from "./Slideshow/Slideshow";
 export { Aside } from "./Aside/Aside";
 export { CardCategory } from "./Cards/CardCategory";
 export { CardVideo } from "./Cards/CardVideo";
+export { CardPlaylist } from "./Cards/CardPlaylist";
 export { Login } from "./Login/Login";
 export { Signup } from "./Signup/Signup";
