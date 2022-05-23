@@ -1,5 +1,16 @@
+import { useDocumentTitle } from "../../hooks/custom/index";
+
 function PageNotFound() {
-  return null;
+  // SET DOCUMENT TITLE
+  useDocumentTitle("PageNotFound");
+
+  // ****************************************************************************************************
+
+  return (
+    <>
+      <div className="errorImage"></div>
+    </>
+  );
 }
 
 export { PageNotFound };

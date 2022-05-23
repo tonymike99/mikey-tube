@@ -9,29 +9,35 @@ const WatchLaterProvider = ({ children }) => {
   const { encodedToken } = useAuth();
   const [watchLaterVideos, setWatchLaterVideos] = useState([]);
 
+  // ****************************************************************************************************
+
   useEffect(() => {
     if (encodedToken) {
-      (async () => {
-        try {
-          const params = {
-            method: "get",
-            url: "/api/user/watchlater",
-            headers: {
-              authorization: encodedToken,
-            },
-          };
-
-          const watchLaterVideosResponse = await axios.request(params);
-
-          if (watchLaterVideosResponse.status === 200) {
-            setWatchLaterVideos(watchLaterVideosResponse.data.watchlater);
-          }
-        } catch (error) {
-          console.log(error.response.data);
-        }
-      })();
+      getWatchLaterVideos();
     }
   }, [encodedToken]);
+
+  // ****************************************************************************************************
+
+  const getWatchLaterVideos = async () => {
+    try {
+      const params = {
+        method: "get",
+        url: "/api/user/watchlater",
+        headers: {
+          authorization: encodedToken,
+        },
+      };
+
+      const watchLaterVideosResponse = await axios.request(params);
+
+      if (watchLaterVideosResponse.status === 200) {
+        setWatchLaterVideos(watchLaterVideosResponse.data.watchlater);
+      }
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
 
   const addVideoToWatchLater = async (video) => {
     try {

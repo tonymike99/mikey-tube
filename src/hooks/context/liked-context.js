@@ -9,29 +9,35 @@ const LikedProvider = ({ children }) => {
   const { encodedToken } = useAuth();
   const [likedVideos, setLikedVideos] = useState([]);
 
+  // ****************************************************************************************************
+
   useEffect(() => {
     if (encodedToken) {
-      (async () => {
-        try {
-          const params = {
-            method: "get",
-            url: "/api/user/likes",
-            headers: {
-              authorization: encodedToken,
-            },
-          };
-
-          const likedVideosResponse = await axios.request(params);
-
-          if (likedVideosResponse.status === 200) {
-            setLikedVideos(likedVideosResponse.data.likes);
-          }
-        } catch (error) {
-          console.log(error.response.data);
-        }
-      })();
+      getLikedVideos();
     }
   }, [encodedToken]);
+
+  // ****************************************************************************************************
+
+  const getLikedVideos = async () => {
+    try {
+      const params = {
+        method: "get",
+        url: "/api/user/likes",
+        headers: {
+          authorization: encodedToken,
+        },
+      };
+
+      const likedVideosResponse = await axios.request(params);
+
+      if (likedVideosResponse.status === 200) {
+        setLikedVideos(likedVideosResponse.data.likes);
+      }
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
 
   const addVideoToLiked = async (video) => {
     try {

@@ -88,6 +88,7 @@ body {
 
 a {
   text-decoration: none;
+  color: var(--primary-color);
 }
 
 i {
@@ -254,10 +255,20 @@ iframe {
 
 /* LOGIN AND SIGNUP PAGES STYLES END */
 
+/* PLAYLIST PAGE */
+
 .playlist-description {
   border-radius: 5px;
   border: 1px solid grey;
   padding: 1rem 1.5rem;
+}
+
+/* ERROR PAGE */
+
+.errorImage {
+  background-image: url("../../assets/images/404_error.gif");
+  background-size: cover;
+  height: 65vh;
 }
 
 /* PROJECT SPECIFIC COMMON STYLES END */
