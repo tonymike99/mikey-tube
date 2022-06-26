@@ -6,6 +6,8 @@ function Home() {
   // SET DOCUMENT TITLE
   useDocumentTitle("Home");
 
+  // ****************************************************************************************************
+
   // GET VIDEOS AND CATEGORIES
   const { videos, categories } = useVideosAndCategories();
 
@@ -16,11 +18,9 @@ function Home() {
       <Aside />
 
       <main className="main">
-        <section>
-          <Slideshow videos={videos} />
-        </section>
+        <Slideshow videos={videos} />
 
-        <section className="videos">
+        <section className="categories">
           {categories.map((category) => (
             <CardCategory key={category._id} data={category} />
           ))}

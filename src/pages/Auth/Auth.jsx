@@ -4,6 +4,8 @@ import { Aside, Login, Signup } from "../../components/index";
 function Auth() {
   const [component, setComponent] = useState("Login");
 
+  // ****************************************************************************************************
+
   return (
     <div className="main-container">
       <Aside />

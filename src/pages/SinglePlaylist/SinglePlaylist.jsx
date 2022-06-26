@@ -17,11 +17,15 @@ function SinglePlaylist() {
       <Aside />
 
       <main className="main">
-        <section>
-          <div className="card padding-2">
-            <h3>Playlist Name: {playlist.title}</h3>
-            <h3>Playlist Description: {playlist.description}</h3>
-            <h3>Playlist Length: {playlist.videos?.length}</h3>
+        <section className="flex-center">
+          <div className="card">
+            <p className="text-bold">Playlist Name: {playlist.title}</p>
+            <p className="text-bold">
+              Playlist Description: {playlist.description}
+            </p>
+            <p className="text-bold">
+              Playlist Length: {playlist.videos?.length}
+            </p>
           </div>
         </section>
 
@@ -31,7 +35,7 @@ function SinglePlaylist() {
               <CardVideo key={playlistVideo._id} video={playlistVideo} />
             ))
           ) : (
-            <h1>Playlist videos empty!</h1>
+            <h1>Playlist {playlist.title} has no videos!</h1>
           )}
         </section>
       </main>
