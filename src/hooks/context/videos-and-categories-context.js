@@ -32,7 +32,7 @@ const VideosAndCategoriesProvider = ({ children }) => {
         setVideos(videosResponse.data.videos);
       }
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error.response);
     }
   };
 
@@ -49,7 +49,7 @@ const VideosAndCategoriesProvider = ({ children }) => {
         setCategories(categoriesResponse.data.categories);
       }
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error.response);
     }
   };
 
@@ -65,7 +65,7 @@ const VideosAndCategoriesProvider = ({ children }) => {
         setVideo(videoResponse.data.video);
       }
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error.response);
     }
   };
 
@@ -82,7 +82,7 @@ const VideosAndCategoriesProvider = ({ children }) => {
         setCategory(categoryResponse.data.category);
       }
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error.response);
     }
   };
 
