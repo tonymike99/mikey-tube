@@ -179,7 +179,7 @@ iframe {
   border-radius: 5px !important;
   font-family: "Nunito Sans", sans-serif;
   font-size: small;
-  padding: 1rem 1.4rem !important;
+  padding: 1rem 1.25rem !important;
 }
 
 .new_textarea {
@@ -261,14 +261,3 @@ iframe {
 }
 
 /* **************************************************************************************************** */
-
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-input[type="password"] {
-  width: 100% !important;
-}
-
-textarea {
-  width: 100%;
-}
