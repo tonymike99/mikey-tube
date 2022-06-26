@@ -27,7 +27,7 @@ function CardPlaylist({ playlist }) {
             alt={title}
           />
 
-          <span className="absolute badge-center">
+          <span className="absolute badge-inside-center">
             <h3 className="h3 text-center">{title.toUpperCase()}</h3>
           </span>
         </Link>

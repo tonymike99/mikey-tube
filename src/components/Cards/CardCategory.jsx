@@ -13,7 +13,7 @@ function CardCategory({ data }) {
           src={imageUrl}
           alt={name}
         />
-        <span className="absolute badge-center">
+        <span className="absolute badge-inside-center">
           <h3 className="h3 text-center color-white">{name.toUpperCase()}</h3>
         </span>
       </div>
