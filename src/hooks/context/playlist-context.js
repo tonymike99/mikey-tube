@@ -36,7 +36,7 @@ const PlaylistProvider = ({ children }) => {
         setPlaylist(playlistResponse.data.playlist);
       }
     } catch (error) {
-      console.log(error.response);
+      console.error(error.response);
     }
   };
 
@@ -57,7 +57,7 @@ const PlaylistProvider = ({ children }) => {
         setPlaylist(playlistResponse.data.playlist);
       }
     } catch (error) {
-      console.log(error.response);
+      console.error(error.response);
     }
   };
 
@@ -77,7 +77,7 @@ const PlaylistProvider = ({ children }) => {
         setPlaylist(playlistResponse.data.playlist);
       }
     } catch (error) {
-      console.log(error.response);
+      console.error(error.response);
     }
   };
 
@@ -97,7 +97,7 @@ const PlaylistProvider = ({ children }) => {
         setPlaylists(playlistsResponse.data.playlists);
       }
     } catch (error) {
-      console.log(error.response);
+      console.error(error.response);
     }
   };
 
@@ -118,7 +118,7 @@ const PlaylistProvider = ({ children }) => {
         setPlaylists(playlistsResponse.data.playlists);
       }
     } catch (error) {
-      console.log(error.response);
+      console.error(error.response);
     }
   };
 
@@ -138,7 +138,7 @@ const PlaylistProvider = ({ children }) => {
         setPlaylists(playlistsResponse.data.playlists);
       }
     } catch (error) {
-      console.log(error.response);
+      console.error(error.response);
     }
   };
 

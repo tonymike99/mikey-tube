@@ -35,7 +35,7 @@ const WatchLaterProvider = ({ children }) => {
         setWatchLaterVideos(watchLaterVideosResponse.data.watchlater);
       }
     } catch (error) {
-      console.log(error.response);
+      console.error(error.response);
     }
   };
 
@@ -56,7 +56,7 @@ const WatchLaterProvider = ({ children }) => {
         setWatchLaterVideos(watchLaterVideosResponse.data.watchlater);
       }
     } catch (error) {
-      console.log(error.response);
+      console.error(error.response);
     }
   };
 
@@ -76,7 +76,7 @@ const WatchLaterProvider = ({ children }) => {
         setWatchLaterVideos(watchLaterVideosResponse.data.watchlater);
       }
     } catch (error) {
-      console.log(error.response);
+      console.error(error.response);
     }
   };
 

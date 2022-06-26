@@ -35,7 +35,7 @@ const LikedProvider = ({ children }) => {
         setLikedVideos(likedVideosResponse.data.likes);
       }
     } catch (error) {
-      console.log(error.response);
+      console.error(error.response);
     }
   };
 
@@ -56,7 +56,7 @@ const LikedProvider = ({ children }) => {
         setLikedVideos(likedVideosResponse.data.likes);
       }
     } catch (error) {
-      console.log(error.response);
+      console.error(error.response);
     }
   };
 
@@ -76,7 +76,7 @@ const LikedProvider = ({ children }) => {
         setLikedVideos(likedVideosResponse.data.likes);
       }
     } catch (error) {
-      console.log(error.response);
+      console.error(error.response);
     }
   };
 
