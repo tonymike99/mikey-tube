@@ -7,15 +7,15 @@ function CardCategory({ data }) {
 
   return (
     <Link key={_id} to="/explore">
-      <div className="card relative round">
+      <div className="card card-category round relative">
         <img
-          className="image-responsive round image-translucent card-category"
+          className="image-responsive round image-translucent"
           src={imageUrl}
           alt={name}
         />
-        <div className="card-header absolute badge-inside-center-stretch">
-          <h3 className="font-montserrat color-white">{name.toUpperCase()}</h3>
-        </div>
+        <span className="absolute badge-inside-center">
+          <h3 className="h3 text-center color-white">{name.toUpperCase()}</h3>
+        </span>
       </div>
     </Link>
   );

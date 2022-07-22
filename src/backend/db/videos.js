@@ -8,8 +8,9 @@ import { categories } from "./categories";
 
 const videoDetails = (url, categoryName, index) => ({
   _id: uuid(),
-  title: categoryName + " " + index,
-  description: categoryName + " " + index,
+  title: categoryName + "  Video " + index,
+  description:
+    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias, corrupti!",
   creator: categoryName + " " + index,
   url,
   categoryName,

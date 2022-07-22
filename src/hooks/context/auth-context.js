@@ -37,7 +37,7 @@ const AuthProvider = ({ children }) => {
         localStorage.setItem("jwt-token", loginResponse.data.encodedToken);
       }
     } catch (error) {
-      console.log(error.response.data);
+      console.error(error.response);
     }
   };
 
@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
         localStorage.setItem("jwt-token", signupResponse.data.encodedToken);
       }
     } catch (error) {
-      console.log(error.response.data);
+      console.error(error.response);
     }
   };
 
@@ -84,7 +84,7 @@ const AuthProvider = ({ children }) => {
         setEncodedToken(localToken);
       }
     } catch (error) {
-      console.log(error.response.data);
+      console.error(error.response);
     }
   };
 

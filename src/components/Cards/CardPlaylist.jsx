@@ -18,27 +18,27 @@ function CardPlaylist({ playlist }) {
   // ****************************************************************************************************
 
   return (
-    <div className="card relative round">
+    <div className="card card-category round relative">
       <div onClick={handlePlaylistOnClick}>
         <Link key={_id} to={`/playlists/${_id}`}>
           <img
-            className="image-responsive round image-translucent card-category"
+            className="image-responsive round image-translucent"
             src={require("../../assets/images/bg.png").default}
             alt={title}
           />
-          <div className="card-header absolute badge-inside-center-stretch">
-            <h3 className="font-montserrat">{title.toUpperCase()}</h3>
-          </div>
+
+          <span className="absolute badge-inside-center">
+            <h3 className="h3 text-center">{title.toUpperCase()}</h3>
+          </span>
         </Link>
       </div>
-      <div
-        className="absolute badge badge-busy"
+
+      <span
+        className="absolute badge badge-busy pointer color-white"
         onClick={handleRemovePlaylistButtonOnClick}
       >
-        <span className="pointer color-white">
-          <i className="fa-solid fa-trash"></i>
-        </span>
-      </div>
+        <i className="fa-solid fa-trash"></i>
+      </span>
     </div>
   );
 }

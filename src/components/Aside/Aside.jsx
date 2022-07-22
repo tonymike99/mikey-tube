@@ -7,18 +7,18 @@ function Aside() {
     { to: "/", name: "HOME", icon: "fa-home" },
     { to: "/explore", name: "EXPLORE", icon: "fa-compass" },
     { to: "/history", name: "HISTORY", icon: "fa-history" },
+    { to: "/liked", name: "LIKED", icon: "fa-thumbs-up" },
     { to: "/watch-later", name: "WATCH LATER", icon: "fa-clock" },
     { to: "/playlists", name: "PLAYLISTS", icon: "fa-list-check" },
-    { to: "/liked", name: "LIKED VIDEOS", icon: "fa-thumbs-up" },
   ];
 
   return (
     <aside className="aside">
-      <ul className="list list-stacked tabs">
+      <ul className="list list-vertical">
         {linkDetails.map((linkDetail) => (
           <Fragment key={linkDetail.to}>
             <li>
-              <NavLink to={`${linkDetail.to}`}>
+              <NavLink className="styled-link" to={`${linkDetail.to}`}>
                 <i className={`fa-solid ${linkDetail.icon} fa-lg`}></i>
                 {`${linkDetail.name}`}
               </NavLink>

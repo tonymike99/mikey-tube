@@ -35,7 +35,7 @@ const HistoryProvider = ({ children }) => {
         setHistoryVideos(historyVideosResponse.data.history);
       }
     } catch (error) {
-      console.log(error.response.data);
+      console.error(error.response);
     }
   };
 
@@ -56,7 +56,7 @@ const HistoryProvider = ({ children }) => {
         setHistoryVideos(historyVideosResponse.data.history);
       }
     } catch (error) {
-      console.log(error.response.data);
+      console.error(error.response);
     }
   };
 
@@ -76,7 +76,7 @@ const HistoryProvider = ({ children }) => {
         setHistoryVideos(historyVideosResponse.data.history);
       }
     } catch (error) {
-      console.log(error.response.data);
+      console.error(error.response);
     }
   };
 
@@ -96,7 +96,7 @@ const HistoryProvider = ({ children }) => {
         setHistoryVideos(historyVideosResponse.data.history);
       }
     } catch (error) {
-      console.log(error.response.data);
+      console.error(error.response);
     }
   };
 

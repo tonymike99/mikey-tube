@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useDocumentTitle } from "../../hooks/custom/index";
 import {
   useAuth,
   useHistory,
@@ -11,7 +10,7 @@ import {
 } from "../../hooks/context/index";
 
 function CardVideo({ video }) {
-  const { _id, title, categoryName, thumbnailUrl } = video;
+  const { _id, title, description, categoryName, thumbnailUrl } = video;
   const { encodedToken } = useAuth();
   const { historyVideos, addVideoToHistory, removeVideoFromHistory } =
     useHistory();
@@ -28,11 +27,6 @@ function CardVideo({ video }) {
   const [isModal, setIsModal] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
-  // ****************************************************************************************************
-
-  // SET DOCUMENT TITLE
-  useDocumentTitle(`${title}`);
 
   // ****************************************************************************************************
 
@@ -121,7 +115,7 @@ function CardVideo({ video }) {
   // ****************************************************************************************************
 
   return (
-    <div className="card card-video">
+    <div className="card">
       <Link to={`/explore/${_id}`}>
         <img
           className="image-responsive"
@@ -132,8 +126,12 @@ function CardVideo({ video }) {
       </Link>
 
       <div className="card-header">
-        <h4 className="text-bold">{title}</h4>
+        <h4 className="h4">{title}</h4>
         <small className="text-grey">{categoryName}</small>
+      </div>
+
+      <div className="card-body">
+        <small className="text-grey">{video.description}</small>
       </div>
 
       <div className="card-footer">
@@ -167,16 +165,17 @@ function CardVideo({ video }) {
         </span>
 
         {isModal && (
-          <div className="modal-window">
-            <div>
-              <div className="margin-2">
-                <h1 className="text-center">Playlists</h1>
-                <span
-                  className="modal-close"
+          <div className="modal-container">
+            <div className="modal-card">
+              <div className="modal-card-header relative">
+                <h3 className="h3 text-center">Playlists</h3>
+                <button
+                  id="modal-close"
+                  className="round pointer btn btn-primary btn-floating badge badge-lg badge-inside-top-right"
                   onClick={handlePlaylistsCloseButtonOnClick}
                 >
                   <i className="fa-solid fa-xmark"></i>
-                </span>
+                </button>
               </div>
 
               <div className="playlists-list">
@@ -202,15 +201,6 @@ function CardVideo({ video }) {
           </div>
         )}
       </div>
-
-      <Link to={`/explore/${_id}`}>
-        <button
-          className="btn btn-secondary btn-width-100 pointer"
-          onClick={handleGetVideoAndAddVideoToHistoryButtonOnClick}
-        >
-          Watch Now
-        </button>
-      </Link>
     </div>
   );
 }

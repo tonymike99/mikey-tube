@@ -7,6 +7,8 @@ function Playlists() {
   // SET DOCUMENT TITLE
   useDocumentTitle("Playlists");
 
+  // ****************************************************************************************************
+
   const { playlists, addPlaylist } = usePlaylist();
   const [isModal, setIsModal] = useState(false);
   const [playlistDetails, setPlaylistDetails] = useState({
@@ -50,7 +52,7 @@ function Playlists() {
       <Aside />
 
       <main className="main">
-        <section>
+        <section className="flex-center">
           <button
             className="btn btn-primary"
             onClick={handleCreateNewPlaylistButtonOnClick}
@@ -59,49 +61,57 @@ function Playlists() {
           </button>
 
           {isModal && (
-            <div className="modal-window">
-              <div>
-                <div className="margin-2">
-                  <h1 className="text-center">New Playlist</h1>
-                  <span
-                    className="modal-close"
+            <div className="modal-container">
+              <div className="modal-card">
+                <div className="modal-card-header relative">
+                  <h3 className="h3 text-center">New Playlist</h3>
+                  <button
+                    id="modal-close"
+                    className="round pointer btn btn-primary btn-floating badge badge-lg badge-inside-top-right"
                     onClick={handlePlaylistsCloseButtonOnClick}
                   >
                     <i className="fa-solid fa-xmark"></i>
-                  </span>
-                </div>
-                <form className="form-spacing" action="#">
-                  <input
-                    type="text"
-                    id="titleInput"
-                    placeholder="Playlist Title"
-                    required
-                    value={playlistDetails.title}
-                    onChange={(e) => handlePlaylistTitleOnChange(e)}
-                  />
-                  <textarea
-                    className="playlist-description"
-                    id="descriptionInput"
-                    placeholder="Playlist Description"
-                    rows="8"
-                    cols="50"
-                    required
-                    value={playlistDetails.description}
-                    onChange={(e) => handlePlaylistDescriptionOnChange(e)}
-                  />
-                  <button
-                    className="btn btn-primary"
-                    onClick={handleCreateNewPlaylistSubmitButtonOnClick}
-                  >
-                    Create new playlist
                   </button>
+                </div>
+
+                <form className="form" action="#">
+                  <div className="form-control">
+                    <input
+                      className="new_input"
+                      type="text"
+                      id="titleInput"
+                      placeholder="Playlist Title"
+                      required
+                      value={playlistDetails.title}
+                      onChange={(e) => handlePlaylistTitleOnChange(e)}
+                    />
+                  </div>
+                  <div className="form-control">
+                    <textarea
+                      className="new_textarea"
+                      id="descriptionInput"
+                      placeholder="Playlist Description"
+                      rows="8"
+                      required
+                      value={playlistDetails.description}
+                      onChange={(e) => handlePlaylistDescriptionOnChange(e)}
+                    />
+                  </div>
+                  <div className="form-control">
+                    <button
+                      className="btn btn-primary btn-width-100"
+                      onClick={handleCreateNewPlaylistSubmitButtonOnClick}
+                    >
+                      Create new playlist
+                    </button>
+                  </div>
                 </form>
               </div>
             </div>
           )}
         </section>
 
-        <section className="videos">
+        <section className="categories">
           {playlists.length ? (
             playlists.map((playlist) => (
               <CardPlaylist key={playlist._id} playlist={playlist} />

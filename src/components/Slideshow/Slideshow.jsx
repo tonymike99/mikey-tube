@@ -67,8 +67,9 @@ function Slideshow({ videos }) {
       >
         {slideshowVideos.map((slideshowVideo, index) => (
           <Link key={slideshowVideo._id} to={`/explore/${slideshowVideo._id}`}>
-            <div className="slide center-contents" key={index}>
+            <div className="slide" key={index}>
               <img
+                className="image-responsive"
                 src={slideshowVideo.thumbnailUrl}
                 alt={slideshowVideo.title}
                 onClick={() =>

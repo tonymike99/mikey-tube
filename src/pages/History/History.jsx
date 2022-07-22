@@ -6,6 +6,8 @@ function History() {
   // SET DOCUMENT TITLE
   useDocumentTitle("History");
 
+  // ****************************************************************************************************
+
   const { historyVideos, removeAllVideosFromHistory } = useHistory();
 
   // ****************************************************************************************************
@@ -15,16 +17,18 @@ function History() {
       <Aside />
 
       <main className="main">
-        <section>
-          {historyVideos.length > 0 && (
-            <button
-              className="btn btn-danger"
-              onClick={removeAllVideosFromHistory}
-            >
-              Delete all from history
-            </button>
-          )}
-        </section>
+        {historyVideos.length > 0 && (
+          <section className="flex-center">
+            {historyVideos.length > 0 && (
+              <button
+                className="btn btn-danger"
+                onClick={removeAllVideosFromHistory}
+              >
+                Delete all from history
+              </button>
+            )}
+          </section>
+        )}
 
         <section className="videos">
           {historyVideos.length ? (

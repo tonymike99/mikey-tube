@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Aside } from "../../components/index";
 import { useDocumentTitle } from "../../hooks/custom/index";
 import {
@@ -21,9 +21,10 @@ function SingleVideo() {
     addVideoToPlaylist,
     removeVideoFromPlaylist,
   } = usePlaylist();
-  const { video } = useVideosAndCategories();
+  const { video, getVideo } = useVideosAndCategories();
   const [isModal, setIsModal] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   // ****************************************************************************************************
 
@@ -103,45 +104,54 @@ function SingleVideo() {
       <Aside />
 
       <main className="main">
-        <section>
-          <iframe width="854" height="480" src={video.url}></iframe>
+        <section className="single-video">
+          <iframe src={video.url}></iframe>
         </section>
 
-        <section className="videos">
-          <h1 className="text-bold">{video.title}</h1>
-          <small className="text-grey">{video.categoryName}</small>
+        <section className="single-video-details">
+          <h3 className="h3">{video.title}</h3>
 
-          <span className="pointer" onClick={handleLikeButtonOnClick}>
-            {isVideoInLiked ? (
-              <i className="fa-solid fa-thumbs-up"></i>
-            ) : (
-              <i className="fa-regular fa-thumbs-up"></i>
-            )}
-          </span>
+          <p className="">{video.categoryName}</p>
 
-          <span className="pointer" onClick={handleWatchLaterButtonOnClick}>
-            {isVideoInWatchLater ? (
-              <i className="fa-solid fa-clock"></i>
-            ) : (
-              <i className="fa-regular fa-clock"></i>
-            )}
-          </span>
+          <small className="text-grey">{video.description}</small>
 
-          <span className=" pointer" onClick={handlePlaylistsOpenButtonOnClick}>
-            <i className="fa-solid fa-list-check"></i>
-          </span>
+          <div>
+            <span className="pointer" onClick={handleLikeButtonOnClick}>
+              {isVideoInLiked ? (
+                <i className="fa-solid fa-thumbs-up"></i>
+              ) : (
+                <i className="fa-regular fa-thumbs-up"></i>
+              )}
+            </span>
+
+            <span className="pointer" onClick={handleWatchLaterButtonOnClick}>
+              {isVideoInWatchLater ? (
+                <i className="fa-solid fa-clock"></i>
+              ) : (
+                <i className="fa-regular fa-clock"></i>
+              )}
+            </span>
+
+            <span
+              className=" pointer"
+              onClick={handlePlaylistsOpenButtonOnClick}
+            >
+              <i className="fa-solid fa-list-check"></i>
+            </span>
+          </div>
 
           {isModal && (
-            <div className="modal-window">
-              <div>
-                <div className="margin-2">
-                  <h1 className="text-center">Playlists</h1>
-                  <span
-                    className="modal-close"
+            <div className="modal-container">
+              <div className="modal-card">
+                <div className="modal-card-header relative">
+                  <h3 className="h3 text-center">Playlists</h3>
+                  <button
+                    id="modal-close"
+                    className="round pointer btn btn-primary btn-floating badge badge-lg badge-inside-top-right"
                     onClick={handlePlaylistsCloseButtonOnClick}
                   >
                     <i className="fa-solid fa-xmark"></i>
-                  </span>
+                  </button>
                 </div>
 
                 <div className="playlists-list">
