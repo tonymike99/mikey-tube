@@ -1,5 +1,5 @@
-# [VideoBud](https://video-bud.netlify.app/)
+# [MikeyTube](https://mikey-tube.netlify.app/)
 
 ## Introduction
 
-VideoBud is a video library application to watch all your favourite videos.
+MikeyTube is a video library application to watch all your favourite videos.
